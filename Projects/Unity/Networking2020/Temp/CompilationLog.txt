@@ -1,0 +1,4 @@
+# Starting compiling mlapi.dll
+C:\Program Files\Unity\Hub\Editor\2020.3.5f1\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-f010775fa34802b4d82191a04defa4f8
+# Starting IL post processing on mlapi.dll
+"C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/MonoBleedingEdge/bin/mono.exe" "C:/Program Files/Unity/Hub/Editor/2020.3.5f1/Editor/Data/Tools/ILPostProcessorRunner/ILPostProcessorRunner.exe" @D:/altro/Networking2020/Temp/UnityTempFile-6b2e4bbc2b0179443942c3a8aa680e03

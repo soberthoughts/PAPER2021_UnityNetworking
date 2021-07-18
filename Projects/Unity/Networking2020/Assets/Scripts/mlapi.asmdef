@@ -1,0 +1,20 @@
+{
+    "name": "mlapi",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1491147abca9d7d4bb7105af628b223e",
+        "GUID:3b8ed52f1b5c64994af4c4e0aa4b6c4b",
+        "GUID:cf3c8d3561be742cc889cc4e329fe386",
+        "GUID:9f4f5bf029cebb64f983b7bdc29f62a1",
+        "GUID:0d0243c226d5dab4fb5d34006a1ad53b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
