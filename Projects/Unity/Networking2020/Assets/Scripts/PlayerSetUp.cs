@@ -11,65 +11,65 @@ using MLAPI.Messaging;
 public class PlayerSetUp : NetworkBehaviour
 {
     public Text namePrefab;
-    [HideInInspector] public Text nameLabel;
-    public Transform namePosition;
-    [HideInInspector] public string nameTextBox = "";
+    [HideInInspector] public Text chatLabel;
+    public Transform chatPosition;
+    [HideInInspector] public string chatTextBox = "";
 
-    public NetworkVariable<string> playerName = new NetworkVariable<string>("PLAYER");
+    public NetworkVariable<string> playerMessage = new NetworkVariable<string>("PLAYER");
 
     public override void NetworkStart()
     {
         GameObject canvas = GameObject.FindWithTag("MainCanvas");
-        nameLabel = Instantiate(namePrefab, Vector3.zero, Quaternion.identity) as Text;
-        nameLabel.transform.SetParent(canvas.transform);
+        chatLabel = Instantiate(namePrefab, Vector3.zero, Quaternion.identity) as Text;
+        chatLabel.transform.SetParent(canvas.transform);
     }
 
     private void Awake()
     {
         if (IsClient)
         {
-            playerName.OnValueChanged += NameChanged;
+            playerMessage.OnValueChanged += MessageChanged;
         }
     }
 
     private void Update()
     {
-        Vector3 nameLabelPos = Camera.main.WorldToScreenPoint(namePosition.position);
-        nameLabel.transform.position = nameLabelPos;
+        Vector3 chatLabelPos = Camera.main.WorldToScreenPoint(chatPosition.position);
+        chatLabel.transform.position = chatLabelPos;
     }
 
     private void OnGUI()
     {
         if (IsLocalPlayer)
         {
-            nameTextBox = GUI.TextField(new Rect(210, 25, 160, 30), nameTextBox);
-            if (GUI.Button(new Rect(380, 25, 160, 30), "Set"))
+            chatTextBox = GUI.TextField(new Rect(210, 25, 160, 30), chatTextBox);
+            if (GUI.Button(new Rect(380, 25, 160, 30), "Send"))
             {
-                    NameChangedServerRpc(nameTextBox);
+                    MessageChangedServerRpc(chatTextBox);
             }
         }
     }
 
     [ServerRpc]
-    public void NameChangedServerRpc(string _playerName)
+    public void MessageChangedServerRpc(string _playerMessage)
     {
-        playerName.Value = _playerName;
-        nameLabel.text = playerName.Value;
-        NameChangedClientRpc(_playerName);
+        playerMessage.Value = _playerMessage;
+        chatLabel.text = playerMessage.Value;
+        MessageChangedClientRpc(_playerMessage);
     }
 
     [ClientRpc]
-    public void NameChangedClientRpc(string _playerName)
+    public void MessageChangedClientRpc(string _playerMessage)
     {
-        playerName.Value = _playerName;
-        nameLabel.text = playerName.Value;
+        playerMessage.Value = _playerMessage;
+        chatLabel.text = playerMessage.Value;
     }
 
 
-    void NameChanged(string oldName, string _playerName)
+    void MessageChanged(string oldMessage, string _playerMessage)
     { 
-        Debug.Log(oldName);
-        Debug.Log(_playerName);
+        Debug.Log(oldMessage);
+        Debug.Log(_playerMessage);
     }
 
 }

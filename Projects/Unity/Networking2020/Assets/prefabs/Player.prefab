@@ -48,7 +48,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627452051157462842}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -241,10 +241,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   namePrefab: {fileID: 4500204820708530579, guid: 242890c41c4a20145a3339560fd98971,
     type: 3}
-  nameLabel: {fileID: 0}
-  namePosition: {fileID: 6607606151376955861}
-  nameTextBox: 
-  playerName:
+  chatLabel: {fileID: 0}
+  chatPosition: {fileID: 6607606151376955861}
+  chatTextBox: 
+  playerMessage:
     m_InternalValue: PLAYER
 --- !u!1 &6576561338108449428
 GameObject:
